@@ -4,7 +4,7 @@ on: [pull_request]
 jobs:
   go:
     name: Go Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       redis:
         image: redis
@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
   node:
     name: Website Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
       - name: yarn install
@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   dependabot-merge:
     name: "Dependabot automerge"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pull-requests: write
       contents: write
